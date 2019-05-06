@@ -1,0 +1,21 @@
+.app {
+    text-align: center;
+}
+
+.input {
+    width: 424px;
+    height: 50px;
+    background-color: aquamarine;
+}
+
+.response {
+    width: 424px;
+    height: 50px;
+    background-color: beige;
+}
+
+td {
+    width: 100px;
+    height: 100px;
+    border: 1px solid black;
+}

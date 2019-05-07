@@ -21,7 +21,7 @@ class Calculator extends React.Component {
     handleNumber(n) {
         this.setState({
             input: this.state.input === 0 ? n.toString() : this.state.input + n,
-            value: eval(eval(this.state.input + n)),
+            value: eval(this.state.input + n),
         });
     }
 

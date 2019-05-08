@@ -5,7 +5,7 @@ class Number extends React.Component {
     render() {
         const {number, handleNumber} = this.props;
         return (
-            <div onClick={handleNumber}>
+            <div className="key" onClick={handleNumber}>
                 {number}
             </div>
         )

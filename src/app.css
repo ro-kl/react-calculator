@@ -1,21 +1,45 @@
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P');
+
 .app {
+    background-color: #f7f9fc;
+    border: 1px solid black;
+    border-radius: 10px;
+    font-family: 'Press Start 2P', cursive;
+    margin: 10px;
+    padding: 10px;
     text-align: center;
+    width: 424px;
 }
 
 .input {
-    width: 424px;
+    display: flex;
+    flex-direction: column;
     height: 50px;
-    background-color: aquamarine;
+    justify-content: center;
+    margin: 2px;
+    /*width: 422px;*/
 }
 
 .response {
-    width: 424px;
-    height: 50px;
     background-color: beige;
+    display: flex;
+    flex-direction: column;
+    height: 50px;
+    justify-content: center;
+    margin: 2px;
+    /*width: 422px;*/
 }
 
-td {
-    width: 100px;
-    height: 100px;
+.key {
+    background-color: #e8ebef;
     border: 1px solid black;
+    border-radius: 3px;
+    height: 100px;
+    width: 100px;
+}
+
+.key:nth-child(1) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }

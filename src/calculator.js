@@ -1,7 +1,9 @@
 import React from 'react';
-import './App.css';
+import './app.css';
 import Operator from './components/operator';
 import Number from './components/number';
+
+const operators = ['+', '-', '*', '/', 'CE'];
 
 class Calculator extends React.Component {
     constructor(props) {
@@ -12,19 +14,39 @@ class Calculator extends React.Component {
         };
     }
 
-    handleOperator(o) {
+    resetInput(){
         this.setState({
-            input: this.state.input + o,
-        });
+            input: 0,
+            value: 0,
+        })
+    }
+
+    handleOperator(o) {
+        const {input} = this.state;
+
+        if (o === operators[4]) {
+            this.resetInput();
+        } else {
+            this.setState({
+                input: operators.indexOf(input[input.length - 1]) >= 0 ? input : input + o,
+            });
+        }
     }
 
     handleNumber(n) {
+        const newInput = this.state.input.toString() === "0"
+            ? n.toString()
+            : this.state.input + n;
+
+        const newValue = newInput !== "0"
+            ? eval(this.state.input + n)
+            : "0";
+
         this.setState({
-            input: this.state.input === 0 ? n.toString() : this.state.input + n,
-            value: eval(this.state.input + n),
+            input: newInput,
+            value: newValue,
         });
     }
-
 
     render() {
         const {input, value} = this.state;
@@ -35,8 +57,8 @@ class Calculator extends React.Component {
                 <table>
                     <tr>
                         <td>
-                            <Operator operator={'+'} handleOperator={() => {
-                                this.handleOperator('+')
+                            <Operator operator={operators[0]} handleOperator={() => {
+                                this.handleOperator(operators[0])
                             }}/>
                         </td>
                         <td>
@@ -50,15 +72,15 @@ class Calculator extends React.Component {
                             }}/>
                         </td>
                         <td>
-                            <Number number={3} handleNumber={() => {
+                            <Number className="key" number={3} handleNumber={() => {
                                 this.handleNumber(3)
                             }}/>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <Operator operator={'-'} handleOperator={() => {
-                                this.handleOperator('-')
+                            <Operator operator={operators[1]} handleOperator={() => {
+                                this.handleOperator(operators[1])
                             }}/>
                         </td>
                         <td>
@@ -79,8 +101,8 @@ class Calculator extends React.Component {
                     </tr>
                     <tr>
                         <td>
-                            <Operator operator={'*'} handleOperator={() => {
-                                this.handleOperator('*')
+                            <Operator operator={operators[2]} handleOperator={() => {
+                                this.handleOperator(operators[2])
                             }}/>
                         </td>
                         <td>
@@ -101,8 +123,8 @@ class Calculator extends React.Component {
                     </tr>
                     <tr>
                         <td>
-                            <Operator operator={'/'} handleOperator={() => {
-                                this.handleOperator('/')
+                            <Operator operator={operators[3]} handleOperator={() => {
+                                this.handleOperator(operators[3])
                             }}/>
                         </td>
                         <td>
@@ -113,6 +135,9 @@ class Calculator extends React.Component {
                             }}/>
                         </td>
                         <td>
+                            <Operator operator={operators[4]} handleOperator={() => {
+                                this.handleOperator(operators[4])
+                            }}/>
                         </td>
                     </tr>
                 </table>

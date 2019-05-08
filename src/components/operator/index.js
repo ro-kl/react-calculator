@@ -5,7 +5,7 @@ class Operator extends React.Component {
     render() {
         const {operator, handleOperator} = this.props;
         return (
-            <div onClick={handleOperator}>
+            <div className="key" onClick={handleOperator}>
                 {operator}
             </div>
         )

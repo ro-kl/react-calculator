@@ -1,3 +1,1 @@
-dummy playground
-
-play with state change
+#use ````npm start```` to play

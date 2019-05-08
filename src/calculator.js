@@ -72,7 +72,7 @@ class Calculator extends React.Component {
                             }}/>
                         </td>
                         <td>
-                            <Number className="key" number={3} handleNumber={() => {
+                            <Number number={3} handleNumber={() => {
                                 this.handleNumber(3)
                             }}/>
                         </td>
